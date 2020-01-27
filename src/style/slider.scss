@@ -1,0 +1,73 @@
+// .slider {
+// display: flex;
+// justify-content: center;
+// .first-header {
+//  content: url('https://res.cloudinary.com/de1fkeds5/image/upload/v1579717309/_MG_2397_ejun5g.jpg');
+//  height: 800px;
+//  width: 1200px;
+// }
+
+// .second-header {
+//     content: url('https://res.cloudinary.com/de1fkeds5/image/upload/v1579717367/DALLIN-SLIDER-FINSIHSED-GREEN-HAT-4-WEB_zzwojh.jpg');
+//     height: 800px;
+//     width: 1200px;
+// }
+
+// .third-header {
+//     content: url('https://res.cloudinary.com/de1fkeds5/image/upload/v1579717309/_MG_2397_ejun5g.jpg');
+//     height: 800px;
+//     width: 1200px;
+// }
+
+// .fourth-header {
+//     content: url('https://res.cloudinary.com/de1fkeds5/image/upload/v1579717382/SLIDER-1-finsihed_rzdrvf.jpg');
+//     height: 800px;
+//     width: 1200px;
+// }
+
+// }
+
+.pic {
+    display: inline-block;
+    width: 1200px;
+    height: 800px;
+    position: absolute;
+
+    img {
+      width: 1200px;
+      height: 800px;
+    }
+  }
+  
+  .current {
+    left: 1200px;
+  }
+  
+  .current.move {
+    left: 0;
+    transition: all .5s ease;
+  }
+  
+  .next {
+    left: 2400px;
+  }
+  
+  .next.move {
+    left: 1200px;
+    transition: all .5s ease;
+  }
+  
+  .pic-wrapper {
+    background: lightgray;
+    left: -1200px;
+    position: absolute;
+    
+  }
+  
+  .mask {
+    left: 50px;
+    overflow: hidden;
+    width: 1200px;
+    height: 800px;
+    position: absolute;
+  }
