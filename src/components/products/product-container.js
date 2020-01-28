@@ -7,7 +7,7 @@ export default class ProductContainer extends Component {
         super();
 
 
-       // this.getProductItems = this.getProductItems.bind(this);
+       this.getProductItems = this.getProductItems.bind(this);
         this.state = {
             pageTitle: "Products",
             isLoading: false,
@@ -32,7 +32,7 @@ export default class ProductContainer extends Component {
                 {id: "18", title: "Pink Dad Hat", hat: "True", category: "Dad-Cap", price: "$24.95", prodimg: "https://res.cloudinary.com/de1fkeds5/image/upload/v1579734989/hats/PINK-DAD_yk2xp2.jpg"},
                 {id: "19", title: "Black Dad Hat", hat: "True", category: "Dad-Cap", price: "$24.95", prodimg: "https://res.cloudinary.com/de1fkeds5/image/upload/v1579717307/hats/BLACK-HAT-FINISHED-4-web_pw96ql.jpg"},
             ]}
-       // this.handleFilter = this.handleFilter.bind(this);
+       this.handleFilter = this.handleFilter.bind(this);
     }
 
         
@@ -41,11 +41,11 @@ export default class ProductContainer extends Component {
 
 
 
-productItems() {
-    return this.state.data.map(item => {
-        return <ProductItem title={item.title} url={" "} slug={item.slug} category={item.category} price={item.price} prodimg={item.prodimg} />
-    })
-}
+// productItems() {
+//     return this.state.data.map(item => {
+//         return <ProductItem title={item.title} url={" "} category={item.category} price={item.price} prodimg={item.prodimg} />
+//     })
+// }
 
 handlePageTitleUpdate() {
     this.setState({
@@ -70,71 +70,71 @@ render() {
     )
 }
 
+
+
+
+
+
+
+
+
+
+handleFilter(filter) {
+    this.setState({
+        data: this.state.data.filter(item => {
+            return item.category === filter;
+        })
+    })
+}
+
+getProductItems() {
+    axios
+    .get("https://db-crew-be.herokuapp.com/products")
+    .then(response => {
+        console.log("response data", response);
+        this.setState({
+            data: response.data.product_items
+    })
+   
+    })
+    .catch(error => {
+        console.log(error);
+    })
+
+}
+
+productItems() {
+    return this.state.data.map(item => {
+        return <ProductItem key={item.id} item={item} />
+    })
+}
+
+componentDidMount() {
+    this.getProductItems();
+}
+
+handlePageTitleUpdate() {
+    this.setState({
+        pageTitle: "Something Else"
+    })
 }
 
 
-
-
-
-
-
-
-// handleFilter(filter) {
-//     this.setState({
-//         data: this.state.data.filter(item => {
-//             return item.category === filter;
-//         })
-//     })
-// }
-
-// getProductItems() {
-//     axios
-//     .get("http://localhost:5000/products")
-//     .then(response => {
-//         console.log("response data", response);
-//         this.setState({
-//             data: response.data.product_items
-//     })
    
-//     })
-//     .catch(error => {
-//         console.log(error);
-//     })
+render() {
+    if (this.state.isLoading) {
+        return <div>Loading...</div>
+    }
 
-// }
-
-// productItems() {
-//     return this.state.data.map(item => {
-//         return <ProductItem key={item.id} item={item} />
-//     })
-// }
-
-// componentDidMount() {
-//     this.getProductItems();
-// }
-
-// handlePageTitleUpdate() {
-//     this.setState({
-//         pageTitle: "Something Else"
-//     })
-// }
-
-
-   
-// render() {
-//     if (this.state.isLoading) {
-//         return <div>Loading...</div>
-//     }
-
-//     return (
-//         <div>
-//             <button onClick={() => this.handleFilter('Hoodies')}>Hoodies</button>
-//             <button onClick={() => this.handleFilter('Short-Sleeves')}>Short-Sleeves</button>
-//             <button onClick={() => this.handleFilter('Long-Sleeves')}>Long-Sleeves</button>
-//             {this.productItems()}
-//             </div>
+    return (
+        <div>
+            <button onClick={() => this.handleFilter('Hoodies')}>Hoodies</button>
+            <button onClick={() => this.handleFilter('Short-Sleeves')}>Short-Sleeves</button>
+            <button onClick={() => this.handleFilter('Long-Sleeves')}>Long-Sleeves</button>
+            {this.productItems()}
+            </div>
     
-//     )
-// }
+    )
+}
 
-// }
+}
