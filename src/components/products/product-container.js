@@ -47,29 +47,6 @@ export default class ProductContainer extends Component {
 //     })
 // }
 
-handlePageTitleUpdate() {
-    this.setState({
-        pageTitle: "Something Else"
-    })
-}
-
-
-   
-render() {
-    if (this.state.isLoading) {
-        return <div>Loading...</div>
-    }
-
-    return (
-        <div className="products">
-            {/* <button onClick={() => this.handleFilter('Dad-Cap')}>Dad-Caps</button>
-            <button onClick={() => this.handleFilter('5-Panel')}>5-Panels</button> */}
-            {this.productItems()}
-            </div>
-    
-    )
-}
-
 
 
 
@@ -80,22 +57,29 @@ render() {
 
 
 handleFilter(filter) {
-    this.setState({
-        data: this.state.data.filter(item => {
-            return item.category === filter;
-        })
-    })
+    if (filter === "CLEAR_FILTERS") {
+        this.getProductItems();
+    } else {
+        this.getProductItems(filter)
+    }
 }
 
-getProductItems() {
+getProductItems(filter = null) {
     axios
     .get("https://db-crew-be.herokuapp.com/products")
     .then(response => {
-        console.log("response data", response);
+        if (filter) {
+        this.setState({
+            data: response.data.product_items.filter(item => {
+                return item.category === filter;
+            })
+    })
+}
+    else {
         this.setState({
             data: response.data.product_items
-    })
-   
+        })
+    }
     })
     .catch(error => {
         console.log(error);
@@ -131,6 +115,7 @@ render() {
             <button onClick={() => this.handleFilter('Hoodies')}>Hoodies</button>
             <button onClick={() => this.handleFilter('Short-Sleeves')}>Short-Sleeves</button>
             <button onClick={() => this.handleFilter('Long-Sleeves')}>Long-Sleeves</button>
+            <button className="btn"  onClick={() => this.handleFilter('CLEAR_FILTERS')}>All</button>
             {this.productItems()}
             </div>
     
