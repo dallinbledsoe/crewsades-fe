@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-export default class ProductItem extends Component {
+export default class Product extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            productItemClass: ""
+            productClass: ""
         }
     }
 
     render() {
-        const { id, title, price, prodimg } = this.props.item;
+        const { id, title, price, prodimg_url } = this.props.product;
     return (
         <Link to={`/shirts/${id}`}>
-        <div className="item-wrapper">
+        <div className="product-wrapper">
            
             <div className="item-image">
-                <img src={prodimg}></img>
+                <img src={prodimg_url}></img>
                 </div>
-            <div className="item-title">{title}</div>
-            <div className="item-price">{price}</div>
+            <div className="product-title">{title}</div>
+            <div className="product-price">{price}</div>
             
             
 

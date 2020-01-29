@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ProductItem from "./product-item"
+import Product from "./product"
 
 export default class ProductContainer extends Component {
     constructor() {
         super();
 
 
-       this.getProductItems = this.getProductItems.bind(this);
+       this.getProducts = this.getProducts.bind(this);
         this.state = {
             pageTitle: "Products",
             isLoading: false,
@@ -41,26 +41,26 @@ export default class ProductContainer extends Component {
 
 handleFilter(filter) {
     if (filter === "CLEAR_FILTERS") {
-        this.getProductItems();
+        this.getProducs();
     } else {
-        this.getProductItems(filter)
+        this.getProducts(filter)
     }
 }
 
-getProductItems(filter = null) {
+getProducts(filter = null) {
     axios
     .get("https://db-crew-be.herokuapp.com/products")
     .then(response => {
         if (filter) {
         this.setState({
-            data: response.data.product_items.filter(item => {
-                return item.category === filter;
+            data: response.data.products.filter(product => {
+                return product.category === filter;
             })
     })
 }
     else {
         this.setState({
-            data: response.data.product_items
+            data: response.data.products
         })
     }
     })
@@ -70,14 +70,14 @@ getProductItems(filter = null) {
 
 }
 
-productItems() {
-    return this.state.data.map(item => {
-        return <ProductItem key={item.id} item={item} />
+products() {
+    return this.state.data.map(product => {
+        return <Product key={product.id} item={product.title} />
     })
 }
 
 componentDidMount() {
-    this.getProductItems();
+    this.getProducts();
 }
 
 handlePageTitleUpdate() {
@@ -99,7 +99,7 @@ render() {
             <button onClick={() => this.handleFilter('Short-Sleeves')}>Short-Sleeves</button>
             <button onClick={() => this.handleFilter('Long-Sleeves')}>Long-Sleeves</button>
             <button className="btn"  onClick={() => this.handleFilter('CLEAR_FILTERS')}>All</button>
-            {this.productItems()}
+            {this.products()}
             </div>
     
     )
