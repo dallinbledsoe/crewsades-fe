@@ -39,23 +39,6 @@ export default class ProductContainer extends Component {
 
 
 
-
-
-// productItems() {
-//     return this.state.data.map(item => {
-//         return <ProductItem title={item.title} url={" "} category={item.category} price={item.price} prodimg={item.prodimg} />
-//     })
-// }
-
-
-
-
-
-
-
-
-
-
 handleFilter(filter) {
     if (filter === "CLEAR_FILTERS") {
         this.getProductItems();
