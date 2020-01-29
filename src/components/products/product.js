@@ -22,8 +22,6 @@ export default class Product extends Component {
             <div className="product-title">{title}</div>
             <div className="product-price">{price}</div>
             
-            
-
         </div>
         </Link>
     )
