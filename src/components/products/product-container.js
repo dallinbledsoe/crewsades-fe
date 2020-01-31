@@ -72,7 +72,7 @@ getProducts(filter = null) {
 
 products() {
     return this.state.data.map(product => {
-        return <Product key={product.id} item={product.title} />
+        return <Product key={product.id} product={product.title} />
     })
 }
 

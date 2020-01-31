@@ -20,11 +20,6 @@ export default class ProductManager extends Component {
         this.clearProductToEdit = this.clearProductToEdit.bind(this);
     }
 
-    // handleSuccessfulFormSubmission(portfolioItem) {
-    //     //TODO
-    //     // update portolioItems State
-    //     // add the portfolio item to the list
-    // }
 
     handleFormSubmissionError(error) {
         console.log("handleFormSubmissionError error", error)
@@ -55,8 +50,8 @@ export default class ProductManager extends Component {
     handleDeleteClick(product) {
         axios.delete(`https://db-crew-be.herokuapp.com/products/${product.id}`, { withCredentials: true }).then(response => {
             this.setState({
-                products: this.state.products.filter(item => {
-                    return item.id !== product.id;
+                products: this.state.products.filter(product => {
+                    return product.id !== product.id;
                 })
             })
 

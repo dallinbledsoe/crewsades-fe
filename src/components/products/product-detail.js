@@ -7,9 +7,9 @@ export default class ProductDetail extends Component {
   constructor(props) {
     super(props)
 
-    // this.state = {
-    //   product = {}
-    // };
+    this.state = {
+    product: {}
+    };
   }
 
 

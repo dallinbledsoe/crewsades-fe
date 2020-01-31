@@ -23,6 +23,7 @@ export default class ProductFrm extends Component {
     this.djsConfig = this.djsConfig.bind(this);
     this.handleProdimgDrop = this.handleProdimgDrop.bind(this);
     this.deleteImage = this.deleteImage.bind(this);
+
     this.prodimgRef = React.createRef();    
   }
 
@@ -49,11 +50,12 @@ export default class ProductFrm extends Component {
         title,
         price,
         category,
-        hat,
         prodimg_url,
       } = this.props.productToEdit;
 
       this.props.clearProductToEdit();
+
+      // update patch in api
 
       this.setState({
         id: id,
@@ -68,7 +70,7 @@ export default class ProductFrm extends Component {
     }
   }
 
-  handleThumbDrop() {
+  handleProdimgDrop() {
     return {
       addedfile: file => this.setState({ prodimg: file })
     };
@@ -194,7 +196,7 @@ export default class ProductFrm extends Component {
               ref={this.prodimgRef}
               config={this.componentConfig()}
               djsConfig={this.djsConfig()}
-              eventHandlers={this.handleLogoDrop()}
+              eventHandlers={this.handleProdimgDrop()}
             >
               <div className="dz-message">Product Img</div>
             </DropzoneComponent>

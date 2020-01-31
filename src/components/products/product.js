@@ -5,15 +5,12 @@ export default class Product extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            productClass: ""
-        }
     }
 
     render() {
         const { id, title, price, prodimg_url } = this.props.product;
     return (
-        <Link to={`/shirts/${id}`}>
+        <Link to={`/shirts/products/${id}`}>
         <div className="product-wrapper">
            
             <div className="item-image">
