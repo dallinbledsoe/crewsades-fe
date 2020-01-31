@@ -12,7 +12,7 @@ import ProductManager from "./pages/product-manager";
 import CartTwo from "./cart/cart2";
 import CheckoutForm from "./cart/form";
 import Auth from "./pages/auth";
-
+import NoMatch from "./pages/nomatch"
 
 
 export default class App extends Component {
@@ -118,6 +118,7 @@ export default class App extends Component {
                 : null}
               <Route path="/products/product:id" component={ProductDetail} />
               <Route path="/cart" component={CartTwo} />
+              <Route component={NoMatch} />
               
             </Switch>
 </div>
