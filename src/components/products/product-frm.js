@@ -9,7 +9,7 @@ export default class ProductFrm extends Component {
     this.state = {
       title: "",
       price: "",
-      category: "eCommerce",
+      category: "short-sleeve",
       hat: false,
       prodimg: "",
       editMode: false,
@@ -59,7 +59,7 @@ export default class ProductFrm extends Component {
         id: id,
         title: title || "",
         price: price || "",
-        category: category || "Hoodies",
+        category: category || "short-sleeve",
         editMode: true,
         apiUrl: `https://db-crew-be.herokuapp.com/products/${id}`,
         apiAction: "patch",
@@ -126,7 +126,7 @@ export default class ProductFrm extends Component {
         this.setState({
           title: "",
           price: "",
-          category: "eCommerce",
+          category: "short-sleeve",
           prodimg: "",
           editMode: false,
           apiUrl: "https://db-crew-be.herokuapp.com/product",
