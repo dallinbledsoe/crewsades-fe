@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import ProductSidebarList from '../product/portfolio-sidebar-list';
-import ProductFrm from "../portfolio/portfolio-form"
+import ProductList from '../products/product-list';
+import ProductFrm from "../products/product-frm";
 
 
-export default class PortfolioManager extends Component {
+export default class ProductManager extends Component {
     constructor() {
         super();
 
@@ -94,7 +94,7 @@ export default class PortfolioManager extends Component {
 
                 </div>
                 <div className="right-column">
-                <PortfolioSidebarList handleDeleteClick={this.handleDeleteClick} data={this.state.portfolioItems} handleEditClick={this.handleEditClick}/>
+                <ProductList handleDeleteClick={this.handleDeleteClick} data={this.state.portfolioItems} handleEditClick={this.handleEditClick}/>
                 
                 
                 </div>
