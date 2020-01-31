@@ -1,5 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const ProductList = (props) => {
     const productList = props.data.map(product => {
 
@@ -15,10 +15,10 @@ const ProductList = (props) => {
 
         <div className="actions">
         <a className="action-icon" onClick={() => props.handleEditClick(product)}>
-            <FontAwesomeIcon icon="edit" />
+        edit
         </a>
         <a className="action-icon" onClick={() => props.handleDeleteClick(product)}>
-            <FontAwesomeIcon icon="trash" />
+            delete
         </a>
         </div>
         </div>

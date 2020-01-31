@@ -68,13 +68,13 @@ export default class ProductManager extends Component {
     }
 
 
-    getPortfolioItems() {
+    getProducts() {
         axios.get("http://db-crew-be.herokuapp.com/products?order_by=created_at&direction=desc", {withCredentials: true})
         .then(response => {
             this.setState({
                 products: [...response.data.products]
             });})
-        .catch(error => {console.log("error in getPortfolioItems", error);})
+        .catch(error => {console.log("error in get producs", error);})
     }
 
     componentDidMount() {
@@ -84,7 +84,7 @@ export default class ProductManager extends Component {
         return (
             <div className="product-manager-wrapper">
                 <div className="left-column">
-                <PortfolioForm
+                <ProductFrm
                     handleNewFormSubmission={this.handleNewFormSubmission}
                     handleEditFormSubmission={this.handleEditFormSubmission}
                     handleFormSubmissionError={this.handleFormSubmissionError}
@@ -94,7 +94,7 @@ export default class ProductManager extends Component {
 
                 </div>
                 <div className="right-column">
-                <ProductList handleDeleteClick={this.handleDeleteClick} data={this.state.portfolioItems} handleEditClick={this.handleEditClick}/>
+                <ProductList handleDeleteClick={this.handleDeleteClick} data={this.state.products} handleEditClick={this.handleEditClick}/>
                 
                 
                 </div>

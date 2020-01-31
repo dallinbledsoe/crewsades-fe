@@ -23,7 +23,6 @@ export default class ProductFrm extends Component {
     this.djsConfig = this.djsConfig.bind(this);
     this.handleProdimgDrop = this.handleProdimgDrop.bind(this);
     this.deleteImage = this.deleteImage.bind(this);
-
     this.prodimgRef = React.createRef();    
   }
 
@@ -121,7 +120,7 @@ export default class ProductFrm extends Component {
         if (this.state.editMode) {
           this.props.handleEditFormSubmission();
         } else {
-          this.props.handleNewFormSubmission(response.data.product_item);
+          this.props.handleNewFormSubmission(response.data.product);
         }
 
         this.setState({
