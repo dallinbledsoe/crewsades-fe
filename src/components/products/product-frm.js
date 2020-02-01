@@ -55,8 +55,6 @@ export default class ProductFrm extends Component {
 
       this.props.clearProductToEdit();
 
-      // update patch in api
-
       this.setState({
         id: id,
         title: title || "",
