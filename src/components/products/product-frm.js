@@ -13,7 +13,7 @@ export default class ProductFrm extends Component {
       hat: false,
       prodimg: "",
       editMode: false,
-      apiUrl: "https://db-crew-be.herokuapp.com/product",
+      apiUrl: "https://becksades.herokuapp.com/product",
       apiAction: "post"
     };
 
@@ -30,7 +30,7 @@ export default class ProductFrm extends Component {
   deleteImage(imageType) {
     axios
       .delete(
-        `https://db-crew-be.herokuapp.com/products//delete-prodimg/${this.state
+        `https://becksades.herokuapp.com//products//delete-prodimg/${this.state
           .id}?image_type=${imageType}`,
         { withCredentials: true }
       )
@@ -61,7 +61,7 @@ export default class ProductFrm extends Component {
         price: price || "",
         category: category || "short-sleeve",
         editMode: true,
-        apiUrl: `https://db-crew-be.herokuapp.com/products/${id}`,
+        apiUrl: `https://becksades.herokuapp.com/products/${id}`,
         apiAction: "patch",
         prodimg_url: prodimg_url || "",
       });
@@ -129,7 +129,7 @@ export default class ProductFrm extends Component {
           category: "short-sleeve",
           prodimg: "",
           editMode: false,
-          apiUrl: "https://db-crew-be.herokuapp.com/product",
+          apiUrl: "https://becksades.herokuapp.com/product",
           apiAction: "post"
         });
 
