@@ -49,7 +49,7 @@ handleFilter(filter) {
 
 getProducts(filter = null) {
     axios
-    .get("https://db-crew-be.herokuapp.com/products")
+    .get("https://becksades.herokuapp.com/products")
     .then(response => {
         if (filter) {
         this.setState({
