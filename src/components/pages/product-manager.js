@@ -48,7 +48,7 @@ export default class ProductManager extends Component {
     }
 
     handleDeleteClick(product) {
-        axios.delete(`https://db-crew-be.herokuapp.com/products/${product.id}`, { withCredentials: true }).then(response => {
+        axios.delete(`https://becksades.herokuapp.com/products/${product.id}`, { withCredentials: true }).then(response => {
             this.setState({
                 products: this.state.products.filter(product => {
                     return product.id !== product.id;
@@ -64,7 +64,7 @@ export default class ProductManager extends Component {
 
 
     getProducts() {
-        axios.get("http://db-crew-be.herokuapp.com/products?order_by=created_at&direction=desc", {withCredentials: true})
+        axios.get("https://becksades.herokuapp.com/products?order_by=created_at&direction=desc", {withCredentials: true})
         .then(response => {
             this.setState({
                 products: [...response.data.products]
