@@ -21,14 +21,13 @@ componentWillMount() {
 getProduct() {
   axios
     .get(
-      `https://db-crew-be.herokuapp.com/products/${
+      `https://becksades.herokuapp.com/product/${
         this.props.match.params.id
       }`,
-      { withCredentials: true }
     )
     .then(response => {
       this.setState({
-        product: response.data.product
+        product: response.data
       });
     })
     .catch(error => {

@@ -20,21 +20,6 @@ export default class ProductManager extends Component {
         this.clearProductToEdit = this.clearProductToEdit.bind(this);
     }
 
-
-    handleFormSubmissionError(error) {
-        console.log("handleFormSubmissionError error", error)
-    }
-
-    handleNewFormSubmission(proudct) {
-        this.setState ({
-            products: [product].concat(this.state.products)
-        })
-    }
-
-    handleEditFormSubmission() {
-        this.getProducts();
-    }
-
     clearProductToEdit() {
         this.setState({
             productToEdit: {}
@@ -48,7 +33,7 @@ export default class ProductManager extends Component {
     }
 
     handleDeleteClick(product) {
-        axios.delete(`https://becksades.herokuapp.com/products/${product.id}`, { withCredentials: true }).then(response => {
+        axios.delete(`https://cors-anywhere.herokuapp.com/https://becksades.herokuapp.com/products/${product.id}`, { withCredentials: true }).then(response => {
             this.setState({
                 products: this.state.products.filter(product => {
                     return product.id !== product.id;
@@ -63,11 +48,30 @@ export default class ProductManager extends Component {
     }
 
 
+    handleEditFormSubmission() {
+        this.getProducts();
+    }
+
+    handleNewFormSubmission(product) {
+        this.setState ({
+            products: [product].concat(this.state.products)
+        })
+    }
+
+    handleFormSubmissionError(error) {
+        console.log("handleFormSubmissionError error", error)
+    }
+
+
+
+
+
+
     getProducts() {
-        axios.get("https://becksades.herokuapp.com/products?order_by=created_at&direction=desc", {withCredentials: true})
+        axios.get("https://cors-anywhere.herokuapp.com/https://becksades.herokuapp.com/products")
         .then(response => {
             this.setState({
-                products: [...response.data.products]
+                products: [...response.data]
             });})
         .catch(error => {console.log("error in get producs", error);})
     }

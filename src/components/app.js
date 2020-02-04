@@ -112,11 +112,10 @@ export default class App extends Component {
               <Route path="/gallery" component={Gallery} />
               <Route path="/shirts" component={Shirts} />
               <Route path="/headwear" component={Headwear} />
-              <Route path="/products/:id" component={ProductDetail} />
-              {this.state.loggedInStatus === "LOGGED_IN"
-                ? this.authorizedPages()
-                : null}
-              <Route path="/products/product:id" component={ProductDetail} />
+              <Route path="/product/product:id" component={ProductDetail} />
+              {this.state.loggedInStatus === "LOGGED_IN" ? (
+                this.authorizedPages()
+              ) : null}
               <Route path="/cart" component={CartTwo} />
               <Route component={NoMatch} />
               

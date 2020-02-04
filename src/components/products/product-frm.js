@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import DropzoneComponent from "react-dropzone-component";
+
 
 export default class ProductFrm extends Component {
   constructor(props) {
@@ -9,48 +9,38 @@ export default class ProductFrm extends Component {
     this.state = {
       title: "",
       price: "",
-      category: "short-sleeve",
+      description: "",
+      category: "Hoodies",
       hat: false,
       prodimg: "",
+      inCart: false,
+      count: 0,
+      total: 0,
       editMode: false,
-      apiUrl: "https://becksades.herokuapp.com/product",
+      apiUrl: "http://becksades.herokuapp.com/product",
       apiAction: "post"
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.componentConfig = this.componentConfig.bind(this);
-    this.djsConfig = this.djsConfig.bind(this);
-    this.handleProdimgDrop = this.handleProdimgDrop.bind(this);
-    this.deleteImage = this.deleteImage.bind(this);
 
     this.prodimgRef = React.createRef();    
   }
 
-  deleteImage(imageType) {
-    axios
-      .delete(
-        `https://becksades.herokuapp.com//products//delete-prodimg/${this.state
-          .id}?image_type=${imageType}`,
-        { withCredentials: true }
-      )
-      .then(response => {
-        this.setState({
-          [`${imageType}_url`]: ""
-        });
-      })
-      .catch(error => {
-        console.log("deleteImage error", error);
-      });
-  }
 
   componentDidUpdate() {
     if (Object.keys(this.props.productToEdit).length > 0) {
       const {
+        id,
         title,
         price,
+        description,
         category,
-        prodimg_url,
+        prodimg,
+        inCart,
+        count,
+        total
+
       } = this.props.productToEdit;
 
       this.props.clearProductToEdit();
@@ -59,34 +49,18 @@ export default class ProductFrm extends Component {
         id: id,
         title: title || "",
         price: price || "",
-        category: category || "short-sleeve",
+        description: description || "",
+        category: category || "Hoodies",
+        hat: hat,
+        inCart: inCart || false,
+        count: count || 0,
+        total: total || 0,
         editMode: true,
-        apiUrl: `https://becksades.herokuapp.com/products/${id}`,
-        apiAction: "patch",
-        prodimg_url: prodimg_url || "",
+        apiUrl: `http://becksades.herokuapp.com/product/${id}`,
+        apiAction: "put",
+        prodimg: prodimg || "",
       });
     }
-  }
-
-  handleProdimgDrop() {
-    return {
-      addedfile: file => this.setState({ prodimg: file })
-    };
-  }
-
-  componentConfig() {
-    return {
-      iconFiletypes: [".jpg", ".png"],
-      showFiletypeIcon: true,
-      postUrl: "https://httpbin.org/post"
-    };
-  }
-
-  djsConfig() {
-    return {
-      addRemoveLinks: true,
-      maxFiles: 1
-    };
   }
 
   buildForm() {
@@ -94,6 +68,11 @@ export default class ProductFrm extends Component {
 
     formData.append("product[title]", this.state.tile);
     formData.append("product[price]", this.state.price);
+    formData.append("product[description]", this.state.description);
+    formData.append("product[hat]", this.state.hat);
+    formData.append("product[inCart]", this.state.inCart);
+    formData.append("product[count]", this.state.count);
+    formData.append("product[total]", this.state.total);
     formData.append("product[category]", this.state.category);
 
     if (this.state.prodimg) {
@@ -114,22 +93,26 @@ export default class ProductFrm extends Component {
       method: this.state.apiAction,
       url: this.state.apiUrl,
       data: this.buildForm(),
-      withCredentials: true
     })
       .then(response => {
         if (this.state.editMode) {
           this.props.handleEditFormSubmission();
         } else {
-          this.props.handleNewFormSubmission(response.data.product);
+          this.props.handleNewFormSubmission(response.data);
         }
 
         this.setState({
           title: "",
           price: "",
-          category: "short-sleeve",
+          description: "",
+          category: "Hoodies",
+          hat: false,
           prodimg: "",
+          inCart: false,
+          count: 0,
+          total: 0,
           editMode: false,
-          apiUrl: "https://becksades.herokuapp.com/product",
+          apiUrl: "http://becksades.herokuapp.com/product",
           apiAction: "post"
         });
 
@@ -150,7 +133,7 @@ export default class ProductFrm extends Component {
         <div className="two-column">
           <input
             type="text"
-            title="title"
+            name="title"
             placeholder="Product Title"
             value={this.state.title}
             onChange={this.handleChange}
@@ -166,39 +149,68 @@ export default class ProductFrm extends Component {
             <option value="Long-Sleeves">Long-Sleeves</option>
             <option value="Short-Sleeves">Short-Sleeves</option>
           </select>
+          <select
+            name="inCart"
+            value={this.state.inCart}
+            onChange={this.handleChange}
+            className="select-element"
+          >
+            <option value={false}>False</option>
+          </select>
+          <select
+            name="count"
+            value={this.state.count}
+            onChange={this.handleChange}
+            className="select-element"
+          >
+            <option value={0}>0</option>
+          </select>
+          <select
+            name="total"
+            value={this.state.total}
+            onChange={this.handleChange}
+            className="select-element"
+          >
+            <option value={0}>0</option>
+          </select>
+          <select
+            name="hat"
+            value={this.state.hat}
+            onChange={this.handleChange}
+            className="select-element"
+          >
+            <option value={true}>True</option>
+            <option value={false}>False</option>
+          </select>
         </div>
 
         <div className="one-column">
-          <textarea
-            type="text"
+          <input
+            type="number"
             name="price"
             placeholder="Price"
             value={this.state.price}
             onChange={this.handleChange}
           />
+            <input
+            type="text"
+            name="prodimg"
+            placeholder="Prodimg link"
+            value={this.state.prodimg}
+            onChange={this.handleChange}
+          />
+          <textarea
+          type="text"
+          name="description"
+          placeholder="Description"
+          value={this.state.description}
+          onChange={this.handleChange}
+          />
         </div>
 
         <div className="image-uploaders">
 
-
-          {this.state.prodimg_url && this.state.editMode ? (
-            <div className="product-manager-image-wrapper">
-              <img src={this.state.prodimg_url} />
-
-              <div className="image-removal-link">
-                <a onClick={() => this.deleteImage("prodimg")}>Remove file</a>
-              </div>
-            </div>
-          ) : (
-            <DropzoneComponent
-              ref={this.prodimgRef}
-              config={this.componentConfig()}
-              djsConfig={this.djsConfig()}
-              eventHandlers={this.handleProdimgDrop()}
-            >
-              <div className="dz-message">Product Img</div>
-            </DropzoneComponent>
-          )}
+          
         </div>
 
         <div>
