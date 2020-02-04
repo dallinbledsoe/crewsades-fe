@@ -8,9 +8,9 @@ import Headwear from "./pages/headwear";
 import Gallery from "./pages/gallery";
 import ProductDetail from "./products/product-detail";
 import ProductManager from "./pages/product-manager";
-// import Cart from "./cart/cart"
-import CartTwo from "./cart/cart2";
-import CheckoutForm from "./cart/form";
+import Cart from "./Cart/cart"
+import Checkout from "./Cart/checkout";
+import CheckoutForm from "./Cart/form";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/nomatch"
 
@@ -116,7 +116,7 @@ export default class App extends Component {
               {this.state.loggedInStatus === "LOGGED_IN" ? (
                 this.authorizedPages()
               ) : null}
-              <Route path="/cart" component={CartTwo} />
+              <Route path="/cart" component={Cart} />
               <Route component={NoMatch} />
               
             </Switch>

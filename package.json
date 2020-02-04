@@ -74,6 +74,7 @@
     "redux": "^3.7.2",
     "regenerator-runtime": "^0.13.3",
     "sass-loader": "^7.1.0",
+    "shopify-cartjs": "^0.4.3",
     "stripe": "^8.6.0",
     "style-loader": "^0.21.0",
     "styled-components": "^4.4.1",
