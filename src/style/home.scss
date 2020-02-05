@@ -1,4 +1,130 @@
+.homepage-wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+
+    .slider {
+        height: 100%;
+        width: 100%;
+    }
+.modules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    padding-top: 125px;
+
+
+    .mod-left {
+        position: relative;
+        width: 556px;
+        height: 600px;
+        padding-left:50px;
+            padding-right:25px;
+        }
+        
+        a {
+            .text {
+                position: absolute;
+                    top: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    text-align: center;
+                    padding-left: 100px;
+                    padding-right: 100px;
+                    color: transparent;
+                    text-align: center;
+                    margin-top: -200px;
+    
+                    
+            }
+            &:hover {
+                    transition: 1s;
+                    filter: brightness(70%);
+                .text {
+                    color: white;
+                    font-size: 45px;
+                    filter: brightness(130%);
+                    
+                }
+
+                
+            }
+        }
+       img {width: 100%;
+            height: 600px;
+
+
+        }
+            
+       
+}
+
+    .mod-right {
+        position: relative;
+        width: 556px;
+        height: 600px;
+        padding-left:25px;
+            padding-right: 50px;
+            a {
+                .text {
+                    position: absolute;
+                        top: 0;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100%;
+                        text-align: center;
+                        padding-left: 100px;
+                        padding-right: 100px;
+
+                        color: transparent;
+                        
+        
+                        
+                }
+                &:hover {
+                    transition: 1s;
+                    filter: brightness(70%);
+                    .text {
+                        color: white;
+                    }
+    
+                    
+                }
+            }
+        img {
+            width: 100%;
+            height: 600px;
+
+            }
+            
+    
+}
+    
+
+}
+
+
+
+
+
+
+
 .module-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50%;
     height: 200px;
+    .image-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
 }

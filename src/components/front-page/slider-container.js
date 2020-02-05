@@ -73,6 +73,7 @@ export default class SliderContainer extends Component {
                 </div>
               </div>
             </div>
+            
           );
         }
       }
