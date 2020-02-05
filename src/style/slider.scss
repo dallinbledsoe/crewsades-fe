@@ -70,4 +70,10 @@
     width: 1200px;
     height: 800px;
     position: absolute;
+    display: flex;
+    justify-content: center;
+  }
+
+  .slider-container {
+    position: relative;
   }

@@ -63,6 +63,7 @@ export default class SliderContainer extends Component {
       
           }
           return (
+            <div className="slider-container">
             <div className="mask">
               <div className="pic-wrapper">
                 <div className={`current pic ${move}`}>
@@ -72,6 +73,7 @@ export default class SliderContainer extends Component {
                   <img src={pics[this.state.next]} alt="" />
                 </div>
               </div>
+            </div>
             </div>
             
           );
