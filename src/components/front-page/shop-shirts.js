@@ -1,14 +1,18 @@
-import React from "react"
+import React from "react";
+import { NavLink } from "react-router-dom";
+export default function() {
 
-export default function();
+
 
 return (
     <div className="module-wrapper">
-        <Link to="/shirts">
-            <img src="https://res.cloudinary.com/de1fkeds5/image/upload/v1579717302/_MG_0795_fr3ran.jpg">
+        module wrapper
+        <NavLink to="/shirts">
+            <div className="image-container" backgroundcolor="https://res.cloudinary.com/de1fkeds5/image/upload/v1580918135/shop-hats_mryuvu.jpg">
                 Shop Shirts
-            </img>
-        </Link>
+                </div>
+        </NavLink>
 
     </div>
 )
+}
