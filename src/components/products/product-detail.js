@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import axios from "axios";
+
 
 
 
@@ -43,31 +45,26 @@ render() {
     category
   } = this.state.product;
 
-  // const bannerStyles = {
-  //   backgroundImage: "url(" + banner_image_url + ")",
-  //   backgroundSize: "cover",
-  //   backgroundRepeat: "no-repeat",
-  //   backgroundPosition: "center center"
-  // };
-
   const logoStyles = {
-    width: "200px"
+    width: "30%"
   };
 
   return (
     <div className="product-detail-wrapper">
-      {/* <div className="banner" style={bannerStyles}> */}
         <img src={prodimg} style={logoStyles} />
+
       
 
       <div className="product-detail-title-wrapper">
         <div className="title">{title}</div>
-        <div className="price">{price}</div>
-  <div className="category">{category}</div>
+        <div className="price">${price}.00</div>
       </div>
 
       <div className="bottom-content-wrapper">
-          pooper
+        <button onClick={() => this.props.handleAddToCart(title)}>Add to cart</button>
+        <Link to="/shirts">
+        <button>Back to shirts</button>
+        </Link>
       </div>
     </div>
     

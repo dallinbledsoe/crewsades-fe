@@ -1,25 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SliderContainer from '../front-page/slider-container'
+import GalleryModule from '../front-page/gallery-module'
 
 
 
 export default class Home extends Component {
-    constructor() {
-        super()
-        this.state = {
-            linkClass: ""
-        }
-    }
-
-
-    handleMouseEnter() {
-        this.setState({ linkClass: "image-blur" });
-    }
-
-    handleMouseLeave() {
-        this.setState({ linkClass: "" });
-    }
+    
 
 
     render() {
@@ -35,15 +22,14 @@ export default class Home extends Component {
                         >
                             
                         <Link to="/headwear" 
-                        onMouseEnter={() => this.handleMouseEnter()}
-                        onMouseLeave={() => this.handleMouseLeave()}
+
                         >
                             <div className="text">
                             SHOP HEADWEAR
                             </div>
                         
                     <img src="https://res.cloudinary.com/de1fkeds5/image/upload/v1580918135/shop-hats_mryuvu.jpg"
-                            className={this.state.linkClass}
+                            
                                  
                     />
                     
@@ -56,16 +42,12 @@ export default class Home extends Component {
                 
                     <div className="mod-right">
                         
-                    <Link to="/shirts"
-                    onMouseEnter={() => this.handleMouseEnter()}
-                    onMouseLeave={() => this.handleMouseLeave()}
-                     >
+                    <Link to="/shirts">
                          <div className="text">
                          SHOP SHIRTS
                          </div>
                         
                     <img src="https://res.cloudinary.com/de1fkeds5/image/upload/v1580922268/_MG_0795_fr3ran.jpg"
-                    className={this.state.linkClass}
                     />
                     
                     </Link>
@@ -73,9 +55,11 @@ export default class Home extends Component {
                 
                 
                 </div>
+                <GalleryModule />
         
          </div>
     )
 }
 }
+
 

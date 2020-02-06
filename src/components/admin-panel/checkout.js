@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StripeProvider, Elements } from 'react-stripe-elements'
-import CheckoutForm from "./form"
+// import CheckoutForm from "../cart/form"
 
 export default class Checkout extends React.Component {
 
@@ -12,7 +12,7 @@ export default class Checkout extends React.Component {
 
             <StripeProvider apiKey="pk_test_DZQdOlPEToyFbbjaHjUht9q4">
             <Elements>
-                <CheckoutForm />
+                {/* <CheckoutForm /> */}
 
             </Elements>
 
