@@ -8,9 +8,9 @@ import Headwear from "./pages/headwear";
 import Gallery from "./pages/gallery";
 import ProductDetail from "./products/product-detail";
 import ProductManager from "./pages/product-manager";
-import Cart from "./Cart/cart"
-import Checkout from "./Cart/checkout";
-import CheckoutForm from "./Cart/form";
+import Cart from "./cart/cart"
+import Checkout from "./cart/checkout";
+import CheckoutForm from "./cart/form";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/nomatch"
 

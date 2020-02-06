@@ -33,7 +33,7 @@ export default class ProductManager extends Component {
     }
 
     handleDeleteClick(product) {
-        axios.delete(`https://cors-anywhere.herokuapp.com/https://becksades.herokuapp.com/products/${product.id}`, { withCredentials: true }).then(response => {
+        axios.delete(`https://cors-anywhere.herokuapp.com/https://becksades.herokuapp.com/product/${product.id}`).then(response => {
             this.setState({
                 products: this.state.products.filter(product => {
                     return product.id !== product.id;

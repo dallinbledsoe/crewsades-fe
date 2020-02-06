@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 // import { storeProducts, detailProduct } from "./data";
+import axios from "axios"
+import ProductContainer from "../products/product-container";
 const ProductContext = React.createContext();
 
 class ProductProvider extends Component {
@@ -11,7 +13,9 @@ class ProductProvider extends Component {
     modalProduct: detailProduct,
     cartSubTotal: 0,
     cartTax: 0,
-    cartTotal: 0
+    cartTotal: 0,
+    // apiUrl: "http://becksades.herokuapp.com/product/<id>",
+    // apiAction: "patch"
   };
   componentDidMount() {
     this.setProducts();
@@ -32,12 +36,7 @@ class ProductProvider extends Component {
     const product = this.state.products.find(item => item.id === id);
     return product;
   };
-  handleDetail = id => {
-    const product = this.getItem(id);
-    this.setState(() => {
-      return { detailProduct: product };
-    });
-  };
+
   addToCart = id => {
     let tempProducts = [...this.state.products];
     const index = tempProducts.indexOf(this.getItem(id));

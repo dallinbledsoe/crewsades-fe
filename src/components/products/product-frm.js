@@ -8,7 +8,7 @@ export default class ProductFrm extends Component {
 
     this.state = {
       title: "",
-      price: "",
+      price: 0,
       description: "",
       category: "Hoodies",
       hat: false,
@@ -48,16 +48,16 @@ export default class ProductFrm extends Component {
       this.setState({
         id: id,
         title: title || "",
-        price: price || "",
+        price: price || 0,
         description: description || "",
         category: category || "Hoodies",
-        hat: hat,
+        hat: hat || false,
         inCart: inCart || false,
         count: count || 0,
         total: total || 0,
         editMode: true,
         apiUrl: `http://becksades.herokuapp.com/product/${id}`,
-        apiAction: "put",
+        apiAction: "patch",
         prodimg: prodimg || "",
       });
     }
@@ -66,7 +66,7 @@ export default class ProductFrm extends Component {
   buildForm() {
     let formData = new FormData();
 
-    formData.append("product[title]", this.state.tile);
+    formData.append("product[title]", this.state.title);
     formData.append("product[price]", this.state.price);
     formData.append("product[description]", this.state.description);
     formData.append("product[hat]", this.state.hat);
@@ -98,12 +98,13 @@ export default class ProductFrm extends Component {
         if (this.state.editMode) {
           this.props.handleEditFormSubmission();
         } else {
+          console.log(response.data)
           this.props.handleNewFormSubmission(response.data);
         }
 
         this.setState({
           title: "",
-          price: "",
+          price: 0,
           description: "",
           category: "Hoodies",
           hat: false,
@@ -128,6 +129,7 @@ export default class ProductFrm extends Component {
   }
 
   render() {
+    console.log(this.state.title)
     return (
       <form onSubmit={this.handleSubmit} className="product-form-wrapper">
         <div className="two-column">
@@ -155,7 +157,7 @@ export default class ProductFrm extends Component {
             onChange={this.handleChange}
             className="select-element"
           >
-            <option value={false}>False</option>
+            <option value={false}>false</option>
           </select>
           <select
             name="count"
@@ -179,8 +181,8 @@ export default class ProductFrm extends Component {
             onChange={this.handleChange}
             className="select-element"
           >
-            <option value={true}>True</option>
-            <option value={false}>False</option>
+            <option value={true}>true</option>
+            <option value={false}>false</option>
           </select>
         </div>
 
