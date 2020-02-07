@@ -53,9 +53,9 @@ export default class SliderContainer extends Component {
                 move: false
               });
               this.setIndexes(this.getNextIndex(this.state.index));
-            }, 3000); // same delay as in the css transition here
+            }, 1000); // same delay as in the css transition here
       
-          }, 10000); // next slide delay
+          }, 5000); // next slide delay
         }
         render() {
           const move = this.state.move ? 'move' : '';
