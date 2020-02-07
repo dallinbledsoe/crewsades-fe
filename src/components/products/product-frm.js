@@ -92,7 +92,19 @@ export default class ProductFrm extends Component {
     axios({
       method: this.state.apiAction,
       url: this.state.apiUrl,
-      data: this.buildForm(),
+      // data: this.buildForm(),
+      data: {
+        title: this.state.title,
+        price: this.state.price,
+        category: this.state.category,
+        description: this.state.description,
+        hat: this.state.hat,
+        inCart: this.state.inCart,
+        count: this.state.count,
+        total: this.state.total,
+        
+
+      },
     })
       .then(response => {
         if (this.state.editMode) {
