@@ -13,7 +13,8 @@ export default class Headwear extends Component {
         super(props)
 
         this.state = {
-            products: []
+            products: [],
+            theCart: []
         }
         this.handleAddToCart = this.handleAddToCart.bind(this);
     }

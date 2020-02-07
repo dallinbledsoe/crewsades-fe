@@ -13,7 +13,8 @@ export default class Shirts extends Component {
         super(props)
 
         this.state = {
-            products: []
+            products: [],
+            theCart: []
         }
         this.handleAddToCart = this.handleAddToCart.bind(this);
     }
