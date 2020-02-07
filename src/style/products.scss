@@ -6,8 +6,10 @@
 .product-wrapper {
     color: black;
     text-decoration: none;
-    @media only screen and (max-widht: 600px) {
-        padding-left: 50px;
+    @media only screen and (max-width: 600px) {
+        display: grid;
+        justify-content: center;
+        align-items: center;
     }
     
     .product-title {
@@ -16,6 +18,7 @@
     }
 }
 .products-wrapper {
+
 
     @media only screen and (min-width: 640px) {
     display: grid;
