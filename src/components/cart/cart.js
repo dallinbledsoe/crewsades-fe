@@ -10,7 +10,7 @@ export default class Cart extends Component {
             cartItems: []
         }
         this.getCartItems = this.getCartItems.bind(this)
-        // this.handleCheckout = this.handleCheckout.bind(this);
+        this.handleRemove = this.handleRemove.bind(this);
     }
 
     getCartItems() {
@@ -34,13 +34,21 @@ export default class Cart extends Component {
     cartItems() {
         console.log("im here",this.state.data)
         return this.state.cartItems.map(cartItem => {
-            return <CartItem key={cartItem.id} cartItem={cartItem} handleCheckout={this.handleCheckout} />
+            return <CartItem key={cartItem.id} cartItem={cartItem} handleRemove={this.handleRemove} />
         })
     }
 
-    // handleCheckout() {
+    handleRemove(id) {
+        axios.patch(`https://becksades.herokuapp.com/inCart/${id}`,{
+            inCart: false,
+            count: 0,
+        }).then
+        const updatedCart = this.state.cartItems.splice(id)
+        this.setState({
+            cartItems: updatedCart
 
-    // }
+        })
+    }
 
 
 
@@ -49,7 +57,7 @@ export default class Cart extends Component {
 
     render() {
         return(
-            <div>
+            <div className="cart-row">
 
             {this.cartItems()}
             <Link to="/checkout"><button>Checkout</button></Link>

@@ -1,0 +1,24 @@
+.cart-row {
+    display: grid;
+}
+
+.cartitem-wrapper {
+    display: flex;
+    align-items: center;
+    height: 75px;
+    width: 100%;
+    padding-left: 50px;
+
+    .item-image {
+        img {
+            height: 100%;
+            width: 25%;
+
+        }
+    }
+    button {
+        height: 25%;
+    }
+
+
+}

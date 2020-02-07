@@ -17,12 +17,12 @@ export default class CartItem extends Component {
     return (
 
 
-        <div className="product-wrapper">
+        <div className="cartitem-wrapper">
             <div className="item-image">
                 <img src={prodimg}></img>
                 </div>
-            <div className="product-title">{title}</div>
-            <div className="product-price">${price}.00</div>
+            <div className="cartitem-title">{title}</div>
+            <div className="cartitem-price">${price}.00</div>
             <div className="quanitity">
 
 
@@ -31,7 +31,7 @@ export default class CartItem extends Component {
 
 
             </div>
-            <button className="add-cart" onClick={() => this.props.handleRemoveFromCart(id)}>Remove from Cart</button>
+            <button className="add-cart" onClick={() => this.props.handleRemove(id)}>Remove from Cart</button>
             </div>
 
             
