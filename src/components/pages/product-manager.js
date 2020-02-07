@@ -82,6 +82,12 @@ export default class ProductManager extends Component {
     render() {
         return (
             <div className="product-manager-wrapper">
+
+                <div className="right-column">
+                <ProductList handleDeleteClick={this.handleDeleteClick} data={this.state.products} handleEditClick={this.handleEditClick}/>
+                
+                
+                </div>
                 <div className="left-column">
                 <ProductFrm
                     handleNewFormSubmission={this.handleNewFormSubmission}
@@ -91,11 +97,6 @@ export default class ProductManager extends Component {
                     productToEdit={this.state.productToEdit}
                 />
 
-                </div>
-                <div className="right-column">
-                <ProductList handleDeleteClick={this.handleDeleteClick} data={this.state.products} handleEditClick={this.handleEditClick}/>
-                
-                
                 </div>
             </div>
         )

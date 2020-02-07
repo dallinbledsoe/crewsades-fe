@@ -58,7 +58,8 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="login-wrapper">
+      <div className="login-header">
         <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
 
         <div>{this.state.errorText}</div>
@@ -90,6 +91,8 @@ export default class Login extends Component {
             <button type="submit">Login</button>
 
         </form>
+      </div>
+      <img src="https://res.cloudinary.com/de1fkeds5/image/upload/v1579717306/BLACK_LOGO_c94b5l.png"></img>
       </div>
     );
   }

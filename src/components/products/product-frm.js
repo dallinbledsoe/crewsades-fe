@@ -96,13 +96,14 @@ export default class ProductFrm extends Component {
       data: {
         title: this.state.title,
         price: this.state.price,
+        prodimg: this.state.prodimg,
         category: this.state.category,
         description: this.state.description,
         hat: this.state.hat,
         inCart: this.state.inCart,
         count: this.state.count,
         total: this.state.total,
-        
+
 
       },
     })
@@ -144,12 +145,28 @@ export default class ProductFrm extends Component {
     console.log(this.state.title)
     return (
       <form onSubmit={this.handleSubmit} className="product-form-wrapper">
-        <div className="two-column">
+
           <input
             type="text"
             name="title"
             placeholder="Product Title"
             value={this.state.title}
+            onChange={this.handleChange}
+          />
+
+
+<input
+            type="number"
+            name="price"
+            placeholder="Price"
+            value={this.state.price}
+            onChange={this.handleChange}
+          />
+            <input
+            type="text"
+            name="prodimg"
+            placeholder="Prodimg link"
+            value={this.state.prodimg}
             onChange={this.handleChange}
           />
 
@@ -196,23 +213,9 @@ export default class ProductFrm extends Component {
             <option value={true}>true</option>
             <option value={false}>false</option>
           </select>
-        </div>
 
-        <div className="one-column">
-          <input
-            type="number"
-            name="price"
-            placeholder="Price"
-            value={this.state.price}
-            onChange={this.handleChange}
-          />
-            <input
-            type="text"
-            name="prodimg"
-            placeholder="Prodimg link"
-            value={this.state.prodimg}
-            onChange={this.handleChange}
-          />
+
+
           <textarea
           type="text"
           name="description"
@@ -220,7 +223,7 @@ export default class ProductFrm extends Component {
           value={this.state.description}
           onChange={this.handleChange}
           />
-        </div>
+
 
         <div className="image-uploaders">
 

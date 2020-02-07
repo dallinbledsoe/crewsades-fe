@@ -1,0 +1,103 @@
+// login 
+
+
+.login-wrapper {
+    img {
+        width: 100%;
+        height: 100%;
+    }
+.login-header {
+    color: white;
+    background-color: black;
+    height: 100%;
+    display: flex;
+
+    .auth-form-wrapper {
+        display: flex;
+        align-items: center;
+        background-color: black;
+        
+        button {
+            color: white;
+            background-color: black;
+            margin-left: 25px;
+        }
+
+        input {
+            color: white;
+            background-color: black;
+            margin-left: 25px;
+        }
+    }
+}
+}
+
+//product manager
+
+.product-manager-wrapper {
+    color: white;
+    background-color: black;
+    display: flex;
+
+    .right-column {
+        color: white;
+        display: grid;
+        margin-left: 100px;
+        margin-top: 50px;
+    }
+
+    button {
+        color: white;
+        background-color: black;
+
+    }
+
+    input {
+        color: white;
+        background-color: black;
+
+    }
+
+
+
+
+}
+
+// product form 
+
+
+.product-form-wrapper {
+    margin-top: 50px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+
+    select {
+        background-color: black;
+        color: white;
+    }
+    
+    textarea {
+        background-color: black;
+        color: white;
+    }
+}
+
+
+//product list
+
+.product-img {
+    margin-left: 20px;
+    img {
+      width: 25%;
+      height: 25%;
+    }
+    a {
+        color: white;
+        padding-left: 20px;
+        cursor: pointer;
+    }
+
+
+}
