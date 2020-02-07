@@ -12,9 +12,7 @@ export default class Home extends Component {
     render() {
     return (
         <div className="homepage-wrapper">
-            <div className="slider">
-            <SliderContainer />
-            </div>
+            
             <div className="modules">
                
                 
@@ -56,7 +54,9 @@ export default class Home extends Component {
                 
                 </div>
                 <GalleryModule />
-        
+                <div className="slider">
+            <SliderContainer />
+            </div>
          </div>
     )
 }

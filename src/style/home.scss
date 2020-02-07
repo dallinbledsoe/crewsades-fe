@@ -1,8 +1,14 @@
 .homepage-wrapper {
+    @media only screen and (min-width: 640px) {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
+    }
+    @media only screen and (max-width: 600px) {
+        justify-content: center;
+        align-items: center;
+    }
 
     .slider {
         height: 100%;
@@ -10,17 +16,23 @@
     }
 .modules {
     display: grid;
+    @media only screen and (min-width: 640px) {
     grid-template-columns: 1fr 1fr;
+    }
     justify-content: center;
     align-items: center;
+    padding-left: 15px;
 
 
     .mod-left {
         position: relative;
+
+        @media only screen and (min-width: 640px) {
         width: 556px;
         height: 600px;
         padding-left:50px;
             padding-right:25px;
+        }
         }
         
         a {
@@ -33,14 +45,24 @@
                     align-items: center;
                     height: 1%;
                     text-align: center;
+                    @media only screen and (max-width: 600px) {
+                        font-size: 35px;
+                        border: 3px solid white;
+                        color: white;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #a0a0a0;
+                        height: 50px;
+                        padding-left: 50px;
+                    }
+                    @media only screen and (min-width: 640px) {
                     padding-left: 100px;
                     padding-right: 100px;
                     color: transparent;
-                    text-align: center;
                     margin-top: -200px;
-    
+                    }
                     
             }
+            @media only screen and (min-width: 640px) {
             &:hover {
                     transition: 1s;
                     filter: brightness(65%);
@@ -51,13 +73,21 @@
                     margin-top: -200px;
                     
                 }
-
+            }
                 
             }
         }
-       img {width: 100%;
+       img {
+        @media only screen and (max-width: 600px) {
+            width: 59%;
+            height: 59%;
+            padding-left: 50px;
+        }
+        
+        @media only screen and (min-width: 640px) {
             height: 600px;
-
+            width: 100%;
+        }
 
         }
             
@@ -66,10 +96,12 @@
 
     .mod-right {
         position: relative;
+        @media only screen and (min-width: 640px) {
         width: 556px;
         height: 600px;
         padding-left:25px;
             padding-right: 50px;
+        }
             a {
                 .text {
                     position: absolute;
@@ -80,14 +112,25 @@
                         align-items: center;
                         height: 1%;
                         text-align: center;
+                        @media only screen and (max-width: 600px) {
+                            font-size: 35px;
+                            border: 3px solid white;
+                            color: white;
+                            -webkit-text-stroke-width: 0.5px;
+                            -webkit-text-stroke-color: #a0a0a0;
+                            height: 50px;
+                            padding-left: 70px;
+                        }
+                        @media only screen and (min-width: 640px) {
                         padding-left: 100px;
                         padding-right: 100px;
                         color: transparent;
                         margin-top: -200px;
-                        
+                        }
         
                         
                 }
+                @media only screen and (min-width: 640px) {
                 &:hover {
                     transition: 1s;
                     filter: brightness(65%);
@@ -99,9 +142,18 @@
                     
                 }
             }
+            }
         img {
-            width: 100%;
+            @media only screen and (max-width: 600px) {
+                width: 59%;
+                height: 59%;
+                padding-left: 50px;
+            }
+
+            @media only screen and (min-width: 640px) {
             height: 600px;
+            width: 100%;
+            }
 
             }
             
@@ -121,7 +173,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 75%;
     height: 200px;
     .image-container {
         display: grid;

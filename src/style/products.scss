@@ -1,6 +1,6 @@
 .products {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    @media only screen and (min-width: 640px) {display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;}
 }
 
 .product-wrapper {
@@ -13,6 +13,8 @@
     }
 }
 .products-wrapper {
+    @media only screen and (min-width: 640px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }

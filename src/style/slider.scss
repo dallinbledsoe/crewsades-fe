@@ -29,18 +29,24 @@
 
 .pic {
     display: inline-block;
+    @media only screen and (min-width: 640px) {
     width: 1200px;
     height: 800px;
+    }
     position: absolute;
 
     img {
+      @media only screen and (min-width: 640px) {
       width: 1200px;
       height: 800px;
+      }
     }
   }
   
-  .current {
+  .current { 
+    @media only screen and (min-width: 640px) {
     left: 1200px;
+    }
   }
   
   .current.move {
@@ -49,17 +55,23 @@
   }
   
   .next {
+    @media only screen and (min-width: 640px) {
     left: 2400px;
+    }
   }
   
   .next.move {
+    @media only screen and (min-width: 640px) {
     left: 1200px;
+    }
     transition: all .5s ease;
   }
   
   .pic-wrapper {
     background: lightgray;
+    @media only screen and (min-width: 640px) {
     left: -1200px;
+    }
     position: absolute;
     
   }
@@ -67,13 +79,19 @@
   .mask {
     left: 50px;
     overflow: hidden;
+    @media only screen and (min-width: 640px) {
     width: 1200px;
     height: 800px;
+    
     position: absolute;
+    visibility: visible;
+    }
+    visibility: hidden;
     display: flex;
     justify-content: center;
   }
 
   .slider-container {
     position: relative;
+    padding-top: 25px;
   }
