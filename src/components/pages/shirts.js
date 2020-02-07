@@ -15,6 +15,7 @@ export default class Shirts extends Component {
         this.state = {
             products: []
         }
+        this.handleAddToCart = this.handleAddToCart.bind(this);
     }
     
     
@@ -42,6 +43,19 @@ export default class Shirts extends Component {
             return <Product key={product.id} product={product} handleAddToCart={this.handleAddToCart} />
         })
     }
+
+    handleAddToCart(id) {
+        axios.patch(`https://becksades.herokuapp.com/inCart/${id}`,{
+            inCart: true,
+            count: 1,
+        }).then
+        const newCart = this.state.theCart.concat(id)
+        this.setState({
+            theCart: newCart
+
+        })
+    }
+
 
 render() {
     return(
