@@ -22,9 +22,12 @@ export default class Shirts extends Component {
         axios.get("https://cors-anywhere.herokuapp.com/https://becksades.herokuapp.com/products")
         .then(response => {
             this.setState({
-                products: [...response.data]
+                products: [...response.data.filter(function(data) {
+                    return data.hat == false
+                })]
                 
             });})
+
 
         .catch(error => {console.log("error in get products", error);})
     }
