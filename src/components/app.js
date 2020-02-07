@@ -8,7 +8,6 @@ import Headwear from "./pages/headwear";
 import Gallery from "./pages/gallery";
 import ProductDetail from "./products/product-detail";
 import ProductManager from "./pages/product-manager";
-import Cart from "./cart/cart"
 import Checkout from "./admin-panel/checkout";
 // import CheckoutForm from "./cart/form";
 import Auth from "./pages/auth";
@@ -117,7 +116,6 @@ export default class App extends Component {
               {this.state.loggedInStatus === "LOGGED_IN" ? (
                 this.authorizedPages()
               ) : null}
-              <Route path="/cart" component={Cart} />
               <Route component={NoMatch} />
               
             </Switch>

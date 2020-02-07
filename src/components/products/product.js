@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ProductConsumer } from "../cart/context"
 import axios from "axios"
 
 export default class Product extends Component {
@@ -21,7 +20,7 @@ export default class Product extends Component {
                 </div>
             <div className="product-title">{title}</div>
             <div className="product-price">${price}.00</div>
-            <button className="add-cart" onClick={() => this.props.handleAddToCart(title)}>Add to cart</button>
+            <button className="add-cart" onClick={() => this.props.handleAddToCart(id)}>Add to cart</button>
             </div>
 
             
@@ -30,4 +29,4 @@ export default class Product extends Component {
 
     )
     }
-}       
+}

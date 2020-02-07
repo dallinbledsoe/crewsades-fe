@@ -13,18 +13,23 @@ export default class ProductContainer extends Component {
             isLoading: false,
             data: [],
             theCart: []
+
         }
        this.handleFilter = this.handleFilter.bind(this);
        this.handleAddToCart = this.handleAddToCart.bind(this);
     }
 
-    handleAddToCart(title) {
-        const newCart = this.state.theCart.concat(title)
+    handleAddToCart(id) {
+        axios.patch(`https://becksades.herokuapp.com/inCart/${id}`,{
+            inCart: true,
+            count: 1,
+        }).then
+        const newCart = this.state.theCart.concat(id)
         this.setState({
             theCart: newCart
+
         })
     }
-
 
 
 handleFilter(filter) {
@@ -34,6 +39,10 @@ handleFilter(filter) {
         this.getProducts(filter)
     }
 }
+
+
+
+
 
 getProducts(filter = null) {
     axios

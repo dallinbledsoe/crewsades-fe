@@ -17,7 +17,7 @@ export default class ProductFrm extends Component {
       count: 0,
       total: 0,
       editMode: false,
-      apiUrl: "http://becksades.herokuapp.com/product",
+      apiUrl: "https://cors-anywhere.herokuapp.com/http://becksades.herokuapp.com/product",
       apiAction: "post"
     };
 
@@ -113,7 +113,7 @@ export default class ProductFrm extends Component {
           count: 0,
           total: 0,
           editMode: false,
-          apiUrl: "http://becksades.herokuapp.com/product",
+          apiUrl: "https://cors-anywhere.herokuapp.com/http://becksades.herokuapp.com/product",
           apiAction: "post"
         });
 
