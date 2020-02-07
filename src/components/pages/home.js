@@ -50,10 +50,12 @@ export default class Home extends Component {
                     
                     </Link>
                     </div>
+
                 
                 
                 </div>
                 <GalleryModule />
+
                 <div className="slider">
             <SliderContainer />
             </div>
