@@ -12,6 +12,7 @@ import Checkout from "./admin-panel/checkout";
 // import CheckoutForm from "./cart/form";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/nomatch"
+import Cart from "./cart/cart"
 
 
 
@@ -116,6 +117,8 @@ export default class App extends Component {
               {this.state.loggedInStatus === "LOGGED_IN" ? (
                 this.authorizedPages()
               ) : null}
+              <Route path="/cart" component={Cart} />
+              <Route path="/checkout" component={Checkout} />
               <Route component={NoMatch} />
               
             </Switch>

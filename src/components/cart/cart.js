@@ -1,19 +1,23 @@
 import React, { Component } from "react"
+import { Link } from "react-router-dom"
+import axios from "axios"
+import CartItem from "./cart-item"
 
 export default class Cart extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            cartItems: []
         }
-        this.handleCheckout = this.handleCheckout.bind(this);
+        this.getCartItems = this.getCartItems.bind(this)
+        // this.handleCheckout = this.handleCheckout.bind(this);
     }
 
-    getProducts() {
+    getCartItems() {
         axios.get("https://cors-anywhere.herokuapp.com/https://becksades.herokuapp.com/products")
         .then(response => {
             this.setState({
-                products: [...response.data.filter(function(data) {
+                cartItems: [...response.data.filter(function(data) {
                     return data.inCart == true
                 })]
                 
@@ -24,17 +28,19 @@ export default class Cart extends Component {
     }
 
     componentDidMount() {
-        this.getProducts();
+        this.getCartItems();
     }
 
     cartItems() {
         console.log("im here",this.state.data)
-        return this.state.products.map(product => {
-            return <CartItem key={product.id} product={product} handleAddToCart={this.handleCheckout} />
+        return this.state.cartItems.map(cartItem => {
+            return <CartItem key={cartItem.id} cartItem={cartItem} handleCheckout={this.handleCheckout} />
         })
     }
 
+    // handleCheckout() {
 
+    // }
 
 
 
@@ -46,8 +52,9 @@ export default class Cart extends Component {
             <div>
 
             {this.cartItems()}
-            <Link><button>Back to Shirts</button></Link>
-            <Link><button>Back to Headwear</button></Link>
+            <Link to="/checkout"><button>Checkout</button></Link>
+            <Link to="/shirts"><button>Back to Shirts</button></Link>
+            <Link to="/headwear"><button>Back to Headwear</button></Link>
 
             </div>
         )
