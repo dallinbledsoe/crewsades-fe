@@ -34,7 +34,7 @@
   "dependencies": {
     "@types/react-stripe-elements": "^6.0.3",
     "@types/stripe": "^7.13.20",
-    "ajv": "^5.5.2",
+    "ajv": "^6.12.3",
     "autoprefixer": "^9.1.0",
     "axios": "^0.19.2",
     "babel-cli": "^6.26.0",
